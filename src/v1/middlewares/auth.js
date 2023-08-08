@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user.model.js');
 const AppError = require('../utils/appError.js');
-const { catchUnknownError } = require('./catchUnknownError.js');
+const catchUnknownError = require('../utils/catchUnknownError.js');
 
 exports.protect = catchUnknownError(async (req, res, next) => {
 	let token;

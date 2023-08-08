@@ -3,7 +3,7 @@ const auth = require('../middlewares/auth');
 
 const router = express.Router();
 const upload = require('../utils/multer.js');
-const { catchUnknownError } = require('../middlewares/catchUnknownError.js');
+const catchUnknownError = require('../utils/catchUnknownError.js');
 
 const MainService = require('../services/CustomerService');
 const _MainController = require('../controllers/CustomerController');
