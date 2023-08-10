@@ -8,7 +8,6 @@ const MongoQueryBuilder = require('../utils/MongoQueryBuilder.js');
 const PaginationHelper = require('../helpers/PaginationHelper.js');
 
 class BaseService {
-	Model;
 	static className = 'BaseService';
 	constructor(Model) {
 		this.Model = Model;

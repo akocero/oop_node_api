@@ -1,3 +1,4 @@
+const Model = require('../models/user.model.js');
 const BaseService = require('./BaseService');
 const jwt = require('jsonwebtoken');
 const Email = require('../helpers/EmailHelper.js');
@@ -7,7 +8,6 @@ class AuthService extends BaseService {
 	Model;
 	static className = 'AuthService';
 	constructor() {
-		const Model = require('../models/user.model.js');
 		super(Model);
 
 		this.Model = Model;

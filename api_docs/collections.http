@@ -1,7 +1,7 @@
 @hostname = http://localhost:4000/api/v1
 #@hostname = https://demo-smatera.bellyeah.jp/api/v1
 @endpoint = /collections
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Y2Y1NjU2Mjc0N2M4YTJhYzNmNmE5YyIsImlhdCI6MTY5MTMyNjg2NywiZXhwIjoxNjkxNDEzMjY3fQ.3bEOZ1fW5Xq0_fqnMPzYdQFTfGgT-72ADnbuGIMH_bM
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Y2Y1NjU2Mjc0N2M4YTJhYzNmNmE5YyIsImlhdCI6MTY5MTY2OTMzOCwiZXhwIjoxNjkxNzU1NzM4fQ.qXwRAMBuUn2OBNiSd-AR_z-A8WCDatmQIsd6Wlz4SLQ
 
 GET {{hostname}}{{endpoint}}
 content-type: application/json

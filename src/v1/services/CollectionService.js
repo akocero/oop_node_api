@@ -1,10 +1,9 @@
+const Model = require('../models/collection.model.js');
 const BaseService = require('./BaseService');
 
 class CollectionService extends BaseService {
-	Model;
 	static className = 'CollectionService';
 	constructor() {
-		const Model = require('../models/collection.model.js');
 		super(Model);
 
 		this.Model = Model;
