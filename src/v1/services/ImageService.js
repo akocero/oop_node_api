@@ -1,5 +1,6 @@
+const Model = require('../models/ImageModel.js');
 const BaseService = require('./BaseService');
-const Model = require('../models/image.model.js');
+
 class CustomerService extends BaseService {
 	Model;
 	static className = 'CustomerService';

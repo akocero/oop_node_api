@@ -2,7 +2,6 @@ const express = require('express');
 const auth = require('../middlewares/auth');
 
 const router = express.Router();
-const upload = require('../utils/multer.js');
 const catchUnknownError = require('../utils/catchUnknownError.js');
 
 const { AuthService: MainService } = require('../services/index');
@@ -26,7 +25,6 @@ router.post(
 router.post(
 	`${prefix}/register`,
 	express.json(),
-	auth.protect,
 	catchUnknownError(MainController.register.bind(MainController)),
 );
 

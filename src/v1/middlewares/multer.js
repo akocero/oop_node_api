@@ -1,6 +1,6 @@
 const multer = require('multer');
 const path = require('path');
-const AppError = require('./appError.js');
+const AppError = require('../utils/appError.js');
 
 // Multer config
 module.exports = multer({

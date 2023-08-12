@@ -1,4 +1,4 @@
-const Model = require('../models/customer.model.js');
+const Model = require('../models/CustomerModel.js');
 const BaseService = require('./BaseService');
 
 class CustomerService extends BaseService {

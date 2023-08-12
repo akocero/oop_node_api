@@ -2,6 +2,6 @@ const BaseController = require('./BaseController');
 const AppError = require('../utils/appError.js');
 const { jsonResponse } = require('../utils/responseBuilder');
 
-class CustomerController extends BaseController {}
+class CharacterController extends BaseController {}
 
-module.exports = CustomerController;
+module.exports = CharacterController;

@@ -1,4 +1,4 @@
-const Model = require('../models/user.model.js');
+const Model = require('../models/UserModel.js');
 const BaseService = require('./BaseService');
 const jwt = require('jsonwebtoken');
 const Email = require('../helpers/EmailHelper.js');
@@ -13,6 +13,30 @@ class AuthService extends BaseService {
 		this.Model = Model;
 		this.with_relation = false;
 		this.relations = {};
+	}
+
+	async generateKey(email) {
+		const user = await this.Model.findOne({ email }).select('+password');
+
+		const is_password_match = await user.comparePassword(
+			password,
+			user.password,
+		);
+
+		if (!is_password_match) {
+			return false;
+		}
+
+		const token = this.createToken(user._id);
+
+		return {
+			user: {
+				_id: user._id,
+				name: user.name,
+				email: user.email,
+			},
+			token,
+		};
 	}
 
 	async login(email, password) {
@@ -123,10 +147,7 @@ class AuthService extends BaseService {
 		const resetURL = `${origin}/auth/reset_password/${resetToken}`;
 
 		try {
-			await new Email(
-				{ email: user.email },
-				resetURL,
-			).sendPasswordReset();
+			await new Email({ email: user.email }).sendPasswordReset(resetURL);
 
 			await user.save({ validateBeforeSave: false });
 

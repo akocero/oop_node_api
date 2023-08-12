@@ -1,26 +1,27 @@
 const express = require('express');
 const auth = require('../middlewares/auth');
+const api = require('../middlewares/api');
 
 const router = express.Router();
 const upload = require('../middlewares/multer.js');
 const catchUnknownError = require('../utils/catchUnknownError.js');
 
-const MainService = require('../services/ImageService');
-const _MainController = require('../controllers/ImageController');
+const MainService = require('../services/CharacterService');
+const _MainController = require('../controllers/CharacterController');
 
 const MainController = new _MainController([MainService]);
 
-const prefix = '/images';
+const prefix = '/characters';
 
 router.get(
 	`${prefix}`,
-	auth.protect,
+	api.protect,
 	catchUnknownError(MainController.readAll.bind(MainController)),
 );
 
 router.get(
 	`${prefix}/:id`,
-	auth.protect,
+	api.protect,
 	catchUnknownError(MainController.readOne.bind(MainController)),
 );
 
@@ -35,7 +36,7 @@ router.post(
 	`${prefix}`,
 	express.json(),
 	auth.protect,
-	upload.single('file'),
+	upload.single('image'), // you need to use this in order to accept data from formdata
 	catchUnknownError(MainController.create.bind(MainController)),
 );
 
